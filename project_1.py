@@ -1,3 +1,9 @@
+# project 1 for introduction
+# Groupe J  
+# Roméo, Delio, Corentin
+# Computational Chemistry with Python
+
+
 import pandas as pd
 import numpy as np
 import re
