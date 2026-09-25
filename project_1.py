@@ -187,7 +187,7 @@ print("Masse conservée", check_mass_conservation(reactants, products))
 def estimate_pi(N):
     """Génère N points aléatoires dans un carré de côté 2 [-1, 1] et compte
 
-    combien tombent dans le cercle unité (distance <= 1)[cite: 1].
+    combien tombent dans le cercle unité (distance <= 1)
     """
     x = np.random.uniform(-1, 1, N)
     y = np.random.uniform(-1, 1, N)
@@ -201,7 +201,7 @@ def estimate_pi(N):
 
 
 def plot_pi_convergence(max_N=10000, step=100):
-    """Affiche la convergence de l'estimation de pi en fonction de N[cite: 1]."""
+    """Affiche la convergence de l'estimation de pi en fonction de N"""
     N_values = list(range(step, max_N + 1, step))
     pi_estimates = [estimate_pi(n) for n in N_values]
 
