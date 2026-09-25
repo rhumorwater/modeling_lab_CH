@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import re
 import math
+import matplotlib.pyplot as plt
 
 
 # Part - A
@@ -178,3 +179,84 @@ print(balance_reaction(["Fe", "O2"], ["Fe2O3"]))
 reactants = {"H2": 2, "O2": 1}
 products = {"H2O": 2}
 print("Masse conservée", check_mass_conservation(reactants, products))
+
+# Part C - Simulation / Modeling
+
+
+# 1. Monte Carlo pi estimation
+def estimate_pi(N):
+    """Génère N points aléatoires dans un carré de côté 2 [-1, 1] et compte
+
+    combien tombent dans le cercle unité (distance <= 1)[cite: 1].
+    """
+    x = np.random.uniform(-1, 1, N)
+    y = np.random.uniform(-1, 1, N)
+
+    # Condition x^2 + y^2 <= 1 pour être dans le cercle unité
+    inside_circle = np.sum(x**2 + y**2 <= 1.0)
+
+    # Rapport d'aires : Aire(Cercle) / Aire(Carré) = (pi * 1^2) / (2 * 2) = pi / 4
+    pi_estimate = 4 * inside_circle / N
+    return pi_estimate
+
+
+def plot_pi_convergence(max_N=10000, step=100):
+    """Affiche la convergence de l'estimation de pi en fonction de N[cite: 1]."""
+    N_values = list(range(step, max_N + 1, step))
+    pi_estimates = [estimate_pi(n) for n in N_values]
+
+    plt.figure(figsize=(10, 5))
+    plt.plot(N_values, pi_estimates, label="Estimation de $\pi$", color="b")
+    plt.axhline(
+        y=np.pi, color="r", linestyle="--", label="Valeur réelle ($\pi$)"
+    )
+    plt.xlabel("Nombre de points N")
+    plt.ylabel("Valeur estimée de $\pi$")
+    plt.title("Convergence de l'estimation de $\pi$ par Monte Carlo")
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
+
+# 2. Chemistry-inspired Monte Carlo
+def simulate_molecular_collisions(
+    M, threshold_energy, distribution="normal", mean_energy=50, std_energy=15
+):
+    """Simule M collisions moléculaires aléatoires et calcule la probabilité de
+
+    réaction[cite: 1].
+    """
+    # Assignation d'énergies aléatoires à chaque collision[cite: 1]
+    if distribution == "normal":
+        energies = np.random.normal(mean_energy, std_energy, M)
+    elif distribution == "uniform":
+        energies = np.random.uniform(0, mean_energy * 2, M)
+    else:
+        raise ValueError("Distribution inconnue. Utilisez 'normal' ou 'uniform'.")
+
+    # Nombre de collisions dépassant l'énergie du seuil d'activation[cite: 1]
+    reactive_collisions = np.sum(energies >= threshold_energy)
+
+    # La fraction représente une estimation de la probabilité de réaction[cite: 1]
+    reaction_probability = reactive_collisions / M
+
+    return reaction_probability
+
+
+# Tests Part C
+print("\n--- Part C Tests ---")
+pi_approx = estimate_pi(100000)
+print(f"Estimation de pi avec N=100 000 : {pi_approx}")
+
+# Affichage du graphique de convergence de Pi
+plot_pi_convergence(max_N=20000, step=200)
+
+# Simulation de collisions moléculaires (M=100 000, Seuil d'activation = 65)
+M_collisions = 100000
+E_threshold = 65.0
+p_react = simulate_molecular_collisions(
+    M_collisions, threshold_energy=E_threshold, distribution="normal"
+)
+print(
+    f"Probabilité de réaction estimée (E >= {E_threshold}) : {p_react:.4f} (soit {p_react*100:.2f}%)"
+)
