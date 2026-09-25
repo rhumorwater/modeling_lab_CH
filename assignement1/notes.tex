@@ -1,0 +1,299 @@
+\documentclass{article}
+\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+\usepackage[dvipsnames,svgnames,x11names]{xcolor}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage{amsopn,amssymb}
+\hypersetup{pdfauthor={Author}, pdftitle={Assignement 1}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+\begin{document}
+
+% --- PAGE 1 ---
+\begin{center}
+    {\LARGE \underline{Assignement 1.}}
+\end{center}
+
+\vspace{0.5cm}
+
+{\Large \underline{Classical Thermodynamics}}
+
+\vspace{0.3cm}
+
+\begin{enumerate}
+    \item[\textbf{1.}] The basic 3 assumptions are:
+    \begin{enumerate}
+        \item[\textbf{1.}] monolayer coverage. Adsorption forms only one layer of molecules on the surface adsorption cannot occur on a site that is already occupied.
+        \item[\textbf{2.}] the surface is uniform and homogenous, all binding sites have the same affinity and are energetically equivalent.
+        \item[\textbf{3.}] No interaction between the molecules.
+    \end{enumerate} 
+
+    \item[\textbf{2.}] 
+    \begin{equation*}
+        q = \frac{q_{\text{sat}} \, K(T) \, P}{1 + K(T) \, P}
+    \end{equation*}
+
+    \begin{enumerate}
+        \item[\textbf{a)}] $\displaystyle \lim_{P \to \infty} q = \lim_{P \to \infty} \frac{q_{\text{sat}} \, K(T) \, P}{1 + K(T) \, P} \longrightarrow \text{we notice the form } \lim_{x \to \infty} \frac{x}{1+x} = 1$
+        
+        \vspace{0.2cm}
+        $\Rightarrow$ \fbox{\rule[-0.2cm]{0cm}{0.6cm} $\displaystyle \lim_{P \to \infty} q = q_{\text{sat}}$}
+
+        \vspace{0.3cm}
+        \item[\textbf{b)}] $\displaystyle \lim_{P \to 0} q = \lim_{P \to 0} \frac{q_{\text{sat}} \, K(T) \, P}{1 + K(T) \, P} \quad \text{at low } P \quad 1 + K(T) \, P \approx 1$
+
+        \vspace{0.2cm}
+        $\Rightarrow \text{at low pressure} \quad$ \fbox{\rule[-0.2cm]{0cm}{0.6cm} $q = q_{\text{sat}} \, K(T) \cdot P$}
+    \end{enumerate}
+
+    \vspace{0.3cm}
+    \item[\textbf{3.}] At low pressure \quad $\displaystyle q = \underbrace{q_{\text{sat}} \cdot K(T)}_{K_H \text{ (Henry's coeff.)}} \cdot P$
+
+    \vspace{0.3cm}
+    \begin{equation*}
+        K(T) = k_0 \exp\left(-\frac{\Delta H}{RT}\right) \Rightarrow \text{\fbox{\rule[-0.3cm]{0cm}{0.8cm} $\displaystyle K_H(T) = q_{\text{sat}} \, k_0 \exp\left(-\frac{\Delta H}{RT}\right)$}}
+    \end{equation*}
+\end{enumerate}
+
+\newpage
+
+% --- PAGE 2 ---
+\begin{enumerate}
+    \item[\textbf{4.}] \underline{\textbf{Step 1:}}
+\end{enumerate}
+
+\vspace{0.2cm}
+\hspace{0.5cm} For each temp, a plot $q$ vs $P$ can be made to obtain $q_{\text{sat}}$, $k_{263}$, $k_{293}$, $k_{313}$
+
+% \vspace{0.3cm}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.35\textwidth]{img-0.jpeg}
+%     \caption{Plot of $q$ versus $P$}
+% \end{figure}
+
+\vspace{0.5cm}
+\underline{\textbf{Step 2:}}
+
+\vspace{0.3cm}
+\begin{equation*}
+    k(T) = k_0 \exp\left(-\frac{\Delta H}{RT}\right)
+\end{equation*}
+
+\begin{equation*}
+    \ln k = \ln k_0 - \frac{\Delta H}{RT} \qquad \text{we can plot } \ln k \text{ vs } \frac{1}{T}
+\end{equation*}
+
+\vspace{0.3cm}
+% \begin{minipage}[c]{0.45\textwidth}
+%     \begin{figure}[H]
+%         \centering
+%         \includegraphics[width=\textwidth]{img-1.jpeg}
+%         \caption{Plot of $\ln(K)$ versus $1/T$}
+%     \end{figure}
+% \end{minipage}
+\hfill
+\begin{minipage}[c]{0.5\textwidth}
+    \begin{gather*}
+        \text{getting the equation of the plot } y = mx + b \\
+        \text{where } m = -\frac{\Delta H}{R} \quad \text{and} \quad b = \ln k_0 \\
+        \text{thus determining } \Delta H \text{ and } k_0
+    \end{gather*}
+\end{minipage}
+
+\newpage
+
+% --- PAGE 3 ---
+{\Large \underline{Statistical Thermodynamics:}}
+
+\vspace{0.5cm}
+
+\begin{enumerate}
+    \item[\textbf{1.}] \textbf{Canonical ensemble}
+
+    \vspace{0.3cm}
+    \begin{tabular}{ll}
+        It describes a system where & $N, V \text{ and } T \text{ are constant.}$
+    \end{tabular}
+
+    \vspace{0.2cm}
+    The system can exchange energy with the environment surrounding it.
+
+    \vspace{0.2cm}
+    In the context of adsorption this means that each different state of the system has different energy.
+
+    \vspace{0.5cm}
+    \item[\textbf{2.}] $\displaystyle Q = \sum_v e^{-\beta E_v} \qquad \beta := \frac{1}{k_B T}$
+
+    \vspace{0.5cm}
+    \item[\textbf{3.}] $\displaystyle P_v = \frac{\exp(-\beta E_v)}{Q}$
+
+    \vspace{0.5cm}
+    \item[\textbf{4.}] 
+    \begin{equation*}
+        \langle S \rangle = k_B \ln Q + k_B T \left( \frac{\partial \ln Q}{\partial T} \right)_{N,V}
+    \end{equation*}
+
+    \begin{equation*}
+        S = -k_B \sum_v P_v \ln P_v \quad \text{and} \quad P_v = \frac{e^{-\beta E_v}}{Q}
+    \end{equation*}
+
+    \begin{equation*}
+        \Rightarrow S = -k_B \sum_v P_v (-\beta E_v - \ln Q) = k_B \beta \sum_v P_v E_v + k_B \ln Q \sum_v P_v \quad \text{knowing that } \sum_v P_v = 1 \text{ by definition}
+    \end{equation*}
+
+    \begin{equation*}
+        \sum_v P_v E_v = \bar{E}_{\text{tot}}
+    \end{equation*}
+
+    \begin{align*}
+        \Rightarrow S &= k_B \beta \bar{E} + k_B \ln Q \qquad \beta := \frac{1}{k_B T} \\
+        &= k_B \ln Q + \frac{\bar{E}}{T} \qquad \text{using the expression given proofed later on: } \bar{E} = k_B T^2 \left( \frac{\partial \ln Q}{\partial T} \right)_{N,V}
+    \end{align*}
+
+    \vspace{0.3cm}
+    \begin{equation*}
+        \text{\fbox{\rule[-0.3cm]{0cm}{0.8cm} $\displaystyle \langle S \rangle = k_B \ln Q + k_B T \left( \frac{\partial \ln Q}{\partial T} \right)_{N,V}$}} \quad \blacksquare
+    \end{equation*}
+\end{enumerate}
+
+% Continuation of handwritten physics notes (pages 4-5)
+% \usepackage{cancel}
+% \usepackage{tcolorbox}
+
+% Page 4
+\begin{flushleft}
+
+\vspace*{0.2cm}
+
+\begin{equation*}
+P = k_B T \left( \frac{\partial \ln Q}{\partial V} \right)_{N,T}
+\end{equation*}
+
+\vspace{0.3cm}
+Starting from:\quad $dE = T dS - P dV$
+
+\begin{equation*}
+P = T \left(\frac{\partial S}{\partial V}\right)_E - \left(\frac{\partial E}{\partial V}\right)_S
+\end{equation*}
+
+\vspace{0.2cm}
+\begin{equation*}
+\left.
+\begin{aligned}
+\frac{\partial S}{\partial V} &= k_B \left( \frac{\partial \ln Q}{\partial V} \right) + k_B T \left( \frac{\partial \ln Q}{\partial V} \right) \\[6pt]
+\frac{\partial E}{\partial V} &= k_B T^2 \left( \frac{\partial \ln Q}{\partial V} \right)_{T,N}
+\end{aligned}
+\right\} \text{substituted in}
+\end{equation*}
+
+\vspace{0.2cm}
+\begin{equation*}
+\Rightarrow P = k_B T \left( \frac{\partial \ln Q}{\partial V} \right)_{N,T} + \cancel{k_B T^2 \left( \frac{\partial \ln Q}{\partial V} \right)_{N,T}} - \cancel{k_B T^2 \left( \frac{\partial \ln Q}{\partial V} \right)_{N,T}}
+\end{equation*}
+
+\vspace{0.2cm}
+% \begin{equation*}
+% \Rightarrow \quad \tcbox[colframe=red,colback=white,boxrule=1pt,arc=0mm,boxsep=3pt,left=6pt,right=6pt,top=4pt,bottom=4pt]{%
+%   \displaystyle P = k_B T \left( \frac{\partial \ln Q}{\partial V} \right)%
+% }   \quad \blacksquare
+% \end{equation*}
+
+% \vspace{0.6cm}
+
+% \begin{equation*}
+%     \mu = - k_B T \left( \frac{\partial \ln Q}{\partial N} \right)_{T,V}
+% \end{equation*}
+
+% \vspace{0.2cm}
+% \begin{equation*}
+% dE = T dS - P dV + \mu \, dN \quad \text{with } V \text{ constant}
+% \end{equation*}
+
+% \begin{equation*}
+% \Rightarrow \mu = \frac{\partial E}{\partial N} - T \frac{\partial S}{\partial N}
+% \end{equation*}
+
+% \begin{equation*}
+% \frac{\partial E}{\partial N} = k_B T^2 \left( \frac{\partial \ln Q}{\partial N} \right)_{T,V}
+% \end{equation*}
+
+% \begin{equation*}
+% \frac{\partial S}{\partial N} = k_B \left( \frac{\partial \ln Q}{\partial N} \right)_{T,V} + k_B T \left( \frac{\partial \ln Q}{\partial N} \right)_{T,V}
+% \end{equation*}
+
+% \begin{equation*}
+% \Rightarrow \mu = \cancel{k_B T^2 \left( \frac{\partial \ln Q}{\partial N} \right)_{T,V}} - k_B T \left( \frac{\partial \ln Q}{\partial N} \right)_{T,V} - \cancel{k_B T^2 \left( \frac{\partial \ln Q}{\partial N} \right)_{T,V}}
+% \end{equation*}
+
+% \vspace{0.2cm}
+% \begin{equation*}
+% \Rightarrow \quad \tcbox[colframe=red,colback=white,boxrule=1pt,arc=0mm,boxsep=3pt,left=6pt,right=6pt,top=4pt,bottom=4pt]{%
+%   \displaystyle \mu = - k_B T \left( \frac{\partial \ln Q}{\partial N} \right)_{T,V}%
+% \quad \blacksquare}
+% \end{equation*}
+
+\vspace{0.6cm}
+
+\begin{equation*}
+E = k_B T^2 \left( \frac{\partial \ln Q}{\partial T} \right)_{V,N}
+\end{equation*}
+
+\vspace{0.2cm}
+\begin{equation*}
+Q = \sum_\nu e^{-\beta E_\nu}
+\end{equation*}
+
+\begin{equation*}
+\frac{\partial Q}{\partial \beta} = - \sum_\nu E_\nu e^{-\beta E_\nu} \quad \Rightarrow \quad \frac{\partial \ln Q}{\partial \beta} = \frac{1}{Q} \frac{\partial Q}{\partial \beta} \quad \Rightarrow \quad \frac{\partial \ln Q}{\partial \beta} = - \sum_\nu \frac{E_\nu e^{-\beta E_\nu}}{Q}
+\end{equation*}
+
+\end{flushleft}
+
+\newpage
+
+% Page 5
+% \begin{flushleft}
+
+\vspace*{0.2cm}
+
+\begin{equation*}
+\text{knowing } P_\nu = \frac{e^{-\beta E_\nu}}{Q} \quad \Rightarrow \quad \frac{\partial \ln Q}{\partial \beta} = - \sum_\nu P_\nu E_\nu \quad \text{since } E = \sum_\nu P_\nu E_\nu
+\end{equation*}
+
+\vspace{0.3cm}
+\begin{equation*}
+\Rightarrow \quad E = - \left( \frac{\partial \ln Q}{\partial \beta} \right)_{N,V}
+\end{equation*}
+
+\vspace{0.5cm}
+\begin{equation*}
+\text{with} \quad \beta = \frac{1}{k_B T} \quad \Rightarrow \quad \frac{\partial \beta}{\partial T} = - \frac{1}{k_B T^2}
+\end{equation*}
+
+\vspace{0.5cm}
+\begin{equation*}
+\text{using chain rule} \quad \frac{\partial \ln Q}{\partial T} = \frac{\partial \ln Q}{\partial \beta} \frac{\partial \beta}{\partial T} \quad \text{and substituting } \frac{\partial \beta}{\partial T} \text{ in}
+\end{equation*}
+
+\vspace{0.5cm}
+\begin{equation*}
+\Rightarrow \quad \frac{\partial \ln Q}{\partial T} = E \cdot \frac{1}{k_B T^2}
+\end{equation*}
+
+% \vspace{0.4cm}
+% \begin{equation*}
+% \Rightarrow \quad \tcbox[colframe=red,colback=white,boxrule=1pt,arc=0mm,boxsep=4pt,left=8pt,right=8pt,top=5pt,bottom=5pt]{%
+%   \displaystyle E = k_B T^2 \left( \frac{\partial \ln Q}{\partial T} \right)_{V,N}%
+% } \quad \blacksquare
+% \end{equation*}
+
+% \end{flushleft}
+
+\end{document}
